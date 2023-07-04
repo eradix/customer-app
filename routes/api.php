@@ -19,7 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/customer', [CustomerController::class, 'store']);
 
-
-Route::get('/customers', [CustomerController::class, 'show']);
+Route::group(['middleware' => 'ensureTokenIsValid', 'prefix' => 'v2'], function(){
+    Route::post('/customer', [CustomerController::class, 'store']);
+    Route::get('/customers', [CustomerController::class, 'show']);
+});
