@@ -51,7 +51,7 @@ class CustomerController extends Controller
 
     public function show(){
         //get all customer info
-        $customerInfos = Customer::with('address', 'capability')
+        $customerInfos = Customer::with('addresses', 'capabilities')
             ->get()
             ->filter(function($customerInfo){
                 return $customerInfo->address->primary;
