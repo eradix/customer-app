@@ -17,7 +17,7 @@ class EnsureTokenIsValid
     {
 
         if ($request->input('token') !== 'my-secret-token') {
-            return response()->json(['message' => "Invalid token"]);
+            return response()->json(['message' => "Invalid token!"]);
         }
 
         return $next($request);

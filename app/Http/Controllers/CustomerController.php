@@ -71,6 +71,7 @@ class CustomerController extends Controller
                 ];
             });
 
+            //return json response
             return response()->json($customerInfos);
     }
 }
