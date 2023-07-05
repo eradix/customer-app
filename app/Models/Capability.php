@@ -12,10 +12,10 @@ class Capability extends Model
     protected $fillable = [
         'code',
         'description',
-        'user_id'
     ];
 
-    public function customer(){
+    public function customer()
+    {
         return $this->belongsToMany(Customer::class);
     }
 }

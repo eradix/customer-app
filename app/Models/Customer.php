@@ -4,8 +4,8 @@ namespace App\Models;
 
 use App\Models\Address;
 use App\Models\Capability;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
@@ -17,11 +17,13 @@ class Customer extends Model
         'active'
     ];
 
-    public function addresses(){
+    public function addresses()
+    {
         return $this->hasMany(Address::class);
     }
 
-    public function capabilities(){
+    public function capabilities()
+    {
         return $this->belongsToMany(Capability::class);
     }
 }

@@ -15,11 +15,10 @@ class EnsureTokenIsValid
      */
     public function handle(Request $request, Closure $next): Response
     {
-
-        if ($request->input('token') !== 'my-secret-token') {
+        //must put authorization in header the 'my-secret-token' as value to proceed
+        if ($request->header('Authorization') !== 'my_ultimate_secret_token') {
             return response()->json(['message' => "Invalid token!"]);
         }
-
         return $next($request);
     }
 }

@@ -12,13 +12,11 @@ class CustomerObserver
      */
     public function created(Customer $customer): void
     {
+        //create a relationship in customers and capabilities after creating each customer
+        $customer->capabilities()->attach(rand(1, 5));
+
         //log the data
-        Log::build([
-            'id' => $customer->id,
-            'first_name' => $customer->first_name,
-            'last_name' => $customer->last_name,
-            'active' => $customer->active,
-        ])->info("Customer: {$customer->first_name} created.");
+        Log::info("Customer: {$customer->first_name} created.", ['customer' => $customer]);
     }
 
     /**

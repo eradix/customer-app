@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Models\Customer;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
@@ -15,10 +15,11 @@ class Address extends Model
         'barangay',
         'city',
         'primary',
-        'user_id'
+        'customer_id'
     ];
 
-    public function customer(){
+    public function customer()
+    {
         return $this->belongsTo(Customer::class);
     }
 }
