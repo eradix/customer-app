@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('capability_id')->constrained('capabilities')->cascadeOnDelete();
             $table->foreignId('customer_id')->constrained('customers')->cascadeOnDelete();
-            $table->timestamps();
         });
     }
 
